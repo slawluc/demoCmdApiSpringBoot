@@ -1,0 +1,14 @@
+
+
+POST http://localhost:8080/risk
+Content-Type: application/json
+x-channel-id: WEB
+x-trust-token: 123456
+
+{
+"customerId" : "123456",
+"amount" : 10000000,
+"currency" : "USD"
+}
+
+###
