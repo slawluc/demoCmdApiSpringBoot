@@ -1,12 +1,12 @@
 # API Structure
 
-##Scenario
+## Scenario
 Assess Credit Risk for customer depending on customer id and requests loan amount.
 - Response will be either A, B, or JUNK
 - Flow and Flux artificially send multiple responses at intervals
     - output is streamed to client
 
-##Use cases 
+## Use cases 
 - Use case 1 : Executable Commands and Ports
 - Use case 2 : Self Executing Commands and Ports
 - Use case 3 : CommandExecutorService
@@ -15,17 +15,19 @@ Assess Credit Risk for customer depending on customer id and requests loan amoun
 - Use case 6 : Coroutine (suspend)
 - Use case 7 : Coroutine (Flow)
 
-##Use cases apply to
+## Use cases apply to packages;
 - Ingress
 - Command (Business)
 - Port
-
-##Usage
-- Set `active.profiles` argument to any of the following
-    - UseCase1
-    - UseCase2
-    - UseCase3
-    - UseCase4
-    - UseCase5
-    - UseCase6
-    - UseCase7
+- Framework
+    - types that belong in supporting libs only
+    
+## Usage
+Set `active.profiles` argument to any of the following;
+- UseCase1
+- UseCase2
+- UseCase3
+- UseCase4
+- UseCase5
+- UseCase6
+- UseCase7
