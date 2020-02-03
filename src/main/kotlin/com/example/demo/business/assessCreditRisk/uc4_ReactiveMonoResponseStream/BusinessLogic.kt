@@ -6,9 +6,10 @@ import com.example.demo.UseCase4
 import com.example.demo.business.assessCreditRisk.*
 import com.example.demo.framework.command.react.MonoToMonoCmd
 import com.example.demo.framework.common.Outcome
+import com.example.demo.framework.port.react.ReactivePortExecutorService
 import com.example.demo.port.assessMediumLoanCreditRisk.CreditMediumResponse
 import com.example.demo.port.assessMediumLoanCreditRisk.CreditRiskMediumRequest
-import com.example.demo.port.assessMediumLoanCreditRisk.uc2_SelfExecutingPort.MediumRiskRequestPort
+import com.example.demo.port.assessMediumLoanCreditRisk.uc4_ReactiveMonoResponseStream.MediumRiskRequestPort
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
 
@@ -20,7 +21,8 @@ import reactor.core.publisher.Mono
 @Component
 class AssessCreditRiskCmd(
         val smallLoanOrchestrator: SmallLoanCreditRiskServiceCheckOrchestrator,
-        val mediumRiskRequestPort: MediumRiskRequestPort
+        val assessMediumRiskPort: MediumRiskRequestPort,
+        val reactivePortExecutorService: ReactivePortExecutorService
 ): MonoToMonoCmd<CreditRiskRequest, CreditRiskResponse> {
 
     override fun invoke(request: Mono<CreditRiskRequest>): Mono<Outcome<CreditRiskResponse>> {
@@ -53,10 +55,10 @@ class AssessCreditRiskCmd(
                 callingContext = request.callingContext
         )
 
-        //TODO get a Mono back from the port stack
-        val response: Outcome<CreditMediumResponse> = mediumRiskRequestPort.execute(portRequest)
-
-        return Mono.just(response.map(CreditMediumResponse::riskRating))
+        return reactivePortExecutorService(portRequest, assessMediumRiskPort)
+                .map { outcome: Outcome<CreditMediumResponse> ->
+                    outcome.map(CreditMediumResponse::riskRating)
+                }
     }
 
 
