@@ -1,10 +1,9 @@
 package com.example.demo.ingress.socket
 
-import sun.jvm.hotspot.runtime.Bytes
 
 class Listener {
 
-    fun handle(byteList: List<Bytes>) {
+    fun handle(byteList: List<Char>) {
         //3 bytes
         //3 bytes
         //8 bytes

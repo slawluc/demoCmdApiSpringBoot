@@ -1,12 +1,10 @@
-package com.example.demo.framework.port
+package com.example.demo.framework.port.blocking.uc2_SelfExecutingPort
 
-import com.example.demo.framework.common.CallingContext
 import com.example.demo.framework.common.Outcome
+import com.example.demo.framework.port.PortRequest
 
 
-abstract class PortRequest(val callingContext: CallingContext)
-
-abstract class BasePort<C: PortRequest, R> {
+abstract class SelfExecutingPort<C: PortRequest, R> {
     protected abstract fun performExecute(portRequest: C): Outcome<R>
 
     @Suppress("UnnecessaryVariable")

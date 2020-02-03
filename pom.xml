@@ -74,6 +74,7 @@
                     <args>
                         <arg>-Xjsr305=strict</arg>
                         <arg>-XXLanguage:+InlineClasses</arg>
+                        <arg>-Xuse-experimental=kotlin.time.ExperimentalTime</arg>
                     </args>
                     <compilerPlugins>
                         <plugin>spring</plugin>

@@ -22,13 +22,3 @@ interface CallingContext {
     val channelId: String
     val identityToken: IdentityToken
 }
-
-/**
- * Plain Old Java Object Calling Context
- */
-data class PojoCallingContext(
-        override val channelId: String,
-        override val identityToken: IdentityToken
-): CallingContext
-
-

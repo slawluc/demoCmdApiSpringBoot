@@ -8,9 +8,9 @@ sealed class Outcome<R>(val error: Boolean) {
                 is Error -> this as Outcome<T>
             }
 
-    class Result<R>(val result: R): Outcome<R>(false)
+    data class Result<R>(val result: R): Outcome<R>(false)
 
-    class Error<R>(val reason: String = "no reason specified"): Outcome<R>(true) //maybe a reason
+    data class Error<R>(val reason: String = "no reason specified"): Outcome<R>(true) //maybe a reason
 }
 
 
