@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component
 @UseCase1
 @UseCase2
 @UseCase3
-@UseCase5
 @Component
 class MediumRiskRequestPort : SelfExecutingPort<CreditRiskMediumRequest, CreditMediumResponse>() {
     override fun performExecute(portRequest: CreditRiskMediumRequest): Outcome<CreditMediumResponse> =
