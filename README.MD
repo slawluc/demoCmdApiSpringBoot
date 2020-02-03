@@ -19,3 +19,13 @@ Assess Credit Risk for customer depending on customer id and requests loan amoun
 - Ingress
 - Command (Business)
 - Port
+
+##Usage
+- Set `active.profiles` argument to any of the following
+    - UseCase1
+    - UseCase2
+    - UseCase3
+    - UseCase4
+    - UseCase5
+    - UseCase6
+    - UseCase7
